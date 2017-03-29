@@ -9,7 +9,7 @@ Please note that you will need version 5.0.87.0 or newer of Map Suite in order t
 
 From 6.0.187.0, the sample has been updated that polygons can also be returned as IsoLines results. You need version 6.0.187.0 or newer of Map Suite in order to use this sample.
 
-Please refer to [Wiki](System.String[]) for the details.
+Please refer to [Wiki](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf) for the details.
 
 ![Screenshot](https://github.com/ThinkGeo/DisplayIsoLinesSample-ForWpf/blob/master/Screenshot.png)
 
