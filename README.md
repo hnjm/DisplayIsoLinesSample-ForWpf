@@ -1,4 +1,4 @@
-# Display IsoLines for Wpf
+# Display Iso Lines Sample for Wpf
 
 ### Description
 In this sample we show how you can use Map Suite to add isolines (commonly known as contour lines) to your .NET application. Isolines are a way to visualize breaks between different groups of data such as elevation levels, soil properties, or just about anything else you can imagine. This sample also shows the various steps in creating isolines, including the gathering of point data, creating a grid using interpolation, and finally, picking your isoline break levels. We also quickly dive into some more advanced options such as generating isolines on the fly. 
@@ -16,7 +16,7 @@ Please refer to [Wiki](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf) 
 ### Requirements
 This sample makes use of the following NuGet Packages
 
-[MapSuite 10.0.0.0](https://www.nuget.org/packages?q=ThinkGeo)
+[MapSuite 10.0.0](https://www.nuget.org/packages?q=ThinkGeo)
 
 ### About the Code
 
@@ -24,9 +24,9 @@ Working...
 
 ### Getting Help
 
-[Map Suite Wpf Wiki Resources](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf)
+[Map Suite Desktop for Wpf Wiki Resources](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf)
 
-[Map Suite Wpf Product Description](https://thinkgeo.com/ui-controls#desktop-platforms)
+[Map Suite Desktop for Wpf Product Description](https://thinkgeo.com/ui-controls#desktop-platforms)
 
 [ThinkGeo Community Site](http://community.thinkgeo.com/)
 
