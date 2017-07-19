@@ -19,9 +19,26 @@ This sample makes use of the following NuGet Packages
 [MapSuite 10.0.0](https://www.nuget.org/packages?q=ThinkGeo)
 
 ### About the Code
+```csharp
+public class DynamicGridFeatureLayer : InMemoryGridFeatureLayer
+{
+    protected override void DrawCore(GeoCanvas canvas, Collection<SimpleCandidate> labelsInAllLayers)
+    {
+        double resolution = GetResolutionFromScale(canvas.CurrentScale, canvas.MapUnit);
 
-Working...
+        double cellSize = Math.Min(cellHeightInPixel * resolution, cellWidthInPixel * resolution);
+        GridDefinition gridDefinition = new GridDefinition(canvas.CurrentWorldExtent, cellSize, NoDataValue, wellDepthPoints);
+        GridCell[,] gridMatrix = GridFeatureSource.GenerateGridMatrix(gridDefinition, InterpolationModel);
 
+        this.GridMatrix = gridMatrix;
+
+        this.FeatureSource.Close();
+        this.FeatureSource.Open();
+
+        base.DrawCore(canvas, labelsInAllLayers);
+    }
+}
+```
 ### Getting Help
 
 [Map Suite Desktop for Wpf Wiki Resources](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf)
@@ -35,7 +52,12 @@ Working...
 ### Key APIs
 This example makes use of the following APIs:
 
-Working...
+- [ThinkGeo.MapSuite.Layers.InMemoryGridFeatureLayer](http://wiki.thinkgeo.com/wiki/api/thinkgeo.mapsuite.layers.inmemorygridfeaturelayer)
+- [ThinkGeo.MapSuite.Drawing.GeoCanvas](http://wiki.thinkgeo.com/wiki/api/thinkgeo.mapsuite.drawing.geocanvas)
+- [ThinkGeo.MapSuite.Styles.SimpleCandidate](http://wiki.thinkgeo.com/wiki/api/thinkgeo.mapsuite.styles.simplecandidate)
+- [ThinkGeo.MapSuite.Layers.GridDefinition](http://wiki.thinkgeo.com/wiki/api/thinkgeo.mapsuite.layers.griddefinition)
+- [ThinkGeo.MapSuite.Layers.GridCell](http://wiki.thinkgeo.com/wiki/api/thinkgeo.mapsuite.layers.gridcell)
+- [ThinkGeo.MapSuite.Layers.GridFeatureSource](http://wiki.thinkgeo.com/wiki/api/thinkgeo.mapsuite.layers.gridfeaturesource)
 
 ### About Map Suite
 Map Suite is a set of powerful development components and services for the .Net Framework.
