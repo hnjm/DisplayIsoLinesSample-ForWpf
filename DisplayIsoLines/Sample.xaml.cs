@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using ThinkGeo.MapSuite;
 using ThinkGeo.MapSuite.Drawing;
 using ThinkGeo.MapSuite.Layers;
 using ThinkGeo.MapSuite.Shapes;
@@ -29,15 +30,17 @@ namespace DisplayIsoLines
         {
             btnGenerateGridFile.IsEnabled = true;
 
-            Map1.CurrentExtent = new RectangleShape(-100.655827718567, 37.7441933095704, -100.613770681213, 37.7186586797486);
+            Map1.MapUnit = GeographyUnit.Meter;
+            Map1.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
+            Map1.CurrentExtent = new RectangleShape(-11204955.4870063, 4543351.66721459, -11200273.7233416, 4539757.60752901);
 
             //Load the well depth points and depth data from a text file into the dictionary
             //We cache this at the class level to prevent form loading it multiple times
             wellDepthPointData = GetWellDepthPointDataFromCSV(wellDepthPointDataFilePath);
 
-            //This loads the background maps from ThinkGeo's World Map Kit Server.
-            WorldStreetsAndImageryOverlay worldMapKitOverlay = new WorldStreetsAndImageryOverlay();
-            Map1.Overlays.Add("WorldMapKitOverlay", worldMapKitOverlay);
+            // Add ThinkGeoCloudMapsOverlay as basemap
+            ThinkGeoCloudMapsOverlay baseOverlay = new ThinkGeoCloudMapsOverlay();
+            Map1.Overlays.Add(baseOverlay);
 
             //Add the grid layer, the grid cells, and the well points to the map
             LayerOverlay isoLineOverlay = new LayerOverlay();
