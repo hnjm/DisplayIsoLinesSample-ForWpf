@@ -52,6 +52,7 @@ namespace DisplayIsoLines
             isoLineOverlay.Layers.Add("IsoLineLayer", GetDynamicIsoLineLayer());
             isoLineOverlay.Layers.Add("GridCellsLayer", GetDynamicGridFeatureLayer());
             isoLineOverlay.Layers.Add("WellsLayer", GetWellDepthPointLayer());
+            isoLineOverlay.DrawingQuality = DrawingQuality.HighQuality;
 
             Map1.Refresh();
         }
