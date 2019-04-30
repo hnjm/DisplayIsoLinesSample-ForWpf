@@ -31,15 +31,19 @@ namespace DisplayIsoLines
             btnGenerateGridFile.IsEnabled = true;
 
             Map1.MapUnit = GeographyUnit.Meter;
-            Map1.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
+            Map1.ZoomLevelSet = new ThinkGeoCloudMapsZoomLevelSet();
             Map1.CurrentExtent = new RectangleShape(-11204955.4870063, 4543351.66721459, -11200273.7233416, 4539757.60752901);
 
             //Load the well depth points and depth data from a text file into the dictionary
             //We cache this at the class level to prevent form loading it multiple times
             wellDepthPointData = GetWellDepthPointDataFromCSV(wellDepthPointDataFilePath);
 
-            // Add ThinkGeoCloudMapsOverlay as basemap
-            ThinkGeoCloudMapsOverlay baseOverlay = new ThinkGeoCloudMapsOverlay();
+            /*===========================================
+               Backgrounds for this sample are powered by ThinkGeo Cloud Maps and require
+               a Client ID and Secret. These were sent to you via email when you signed up
+               with ThinkGeo, or you can register now at https://cloud.thinkgeo.com.
+            ===========================================*/
+            ThinkGeoCloudRasterMapsOverlay baseOverlay = new ThinkGeoCloudRasterMapsOverlay();
             Map1.Overlays.Add(baseOverlay);
 
             //Add the grid layer, the grid cells, and the well points to the map
