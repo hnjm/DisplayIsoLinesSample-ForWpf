@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*===========================================
+    Backgrounds for this sample are powered by ThinkGeo Cloud Maps and require
+    a Client ID and Secret. These were sent to you via email when you signed up
+    with ThinkGeo, or you can register now at https://cloud.thinkgeo.com.
+===========================================*/
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -38,12 +44,8 @@ namespace DisplayIsoLines
             //We cache this at the class level to prevent form loading it multiple times
             wellDepthPointData = GetWellDepthPointDataFromCSV(wellDepthPointDataFilePath);
 
-            /*===========================================
-               Backgrounds for this sample are powered by ThinkGeo Cloud Maps and require
-               a Client ID and Secret. These were sent to you via email when you signed up
-               with ThinkGeo, or you can register now at https://cloud.thinkgeo.com.
-            ===========================================*/
-            ThinkGeoCloudRasterMapsOverlay baseOverlay = new ThinkGeoCloudRasterMapsOverlay();
+            // Please input your ThinkGeo Cloud Client ID / Client Secret to enable the background map. 
+            ThinkGeoCloudRasterMapsOverlay baseOverlay = new ThinkGeoCloudRasterMapsOverlay("ThinkGeo Cloud Client ID", "ThinkGeo Cloud Client Secret");
             Map1.Overlays.Add(baseOverlay);
 
             //Add the grid layer, the grid cells, and the well points to the map
